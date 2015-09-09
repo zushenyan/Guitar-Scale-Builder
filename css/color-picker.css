@@ -1,0 +1,77 @@
+.csb-colorpicker {
+  display: inline-block;
+  background-color: white; }
+
+.csb-colorpicker-container, .csb-colorpicker-selector {
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+  transition: all ease 1s; }
+  .csb-colorpicker-container li, .csb-colorpicker-selector li {
+    display: inline-block;
+    position: relative;
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    margin: 0 10px; }
+    .csb-colorpicker-container li:hover, .csb-colorpicker-selector li:hover {
+      cursor: pointer; }
+    .csb-colorpicker-container li.color-1, .csb-colorpicker-selector li.color-1 {
+      background-color: white; }
+    .csb-colorpicker-container li.color-2, .csb-colorpicker-selector li.color-2 {
+      background-color: aqua; }
+    .csb-colorpicker-container li.color-3, .csb-colorpicker-selector li.color-3 {
+      background-color: orange; }
+    .csb-colorpicker-container li.color-4, .csb-colorpicker-selector li.color-4 {
+      background-color: coral; }
+    .csb-colorpicker-container li.color-5, .csb-colorpicker-selector li.color-5 {
+      background-color: brown; }
+    .csb-colorpicker-container li.color-6, .csb-colorpicker-selector li.color-6 {
+      background-color: beige; }
+    .csb-colorpicker-container li.color-7, .csb-colorpicker-selector li.color-7 {
+      background-color: gold; }
+    .csb-colorpicker-container li.color-8, .csb-colorpicker-selector li.color-8 {
+      background-color: mistyrose; }
+    .csb-colorpicker-container li.color-9, .csb-colorpicker-selector li.color-9 {
+      background-color: gray; }
+    .csb-colorpicker-container li.color-10, .csb-colorpicker-selector li.color-10 {
+      background-color: royalblue; }
+    .csb-colorpicker-container li.color-11, .csb-colorpicker-selector li.color-11 {
+      background-color: yellow; }
+    .csb-colorpicker-container li.color-none:before, .csb-colorpicker-selector li.color-none:before {
+      position: absolute;
+      display: block;
+      background-color: lightgray;
+      height: 5px;
+      width: 30px;
+      margin: 0 auto;
+      top: 50%;
+      z-index: 0;
+      transform: translateY(-50%) rotate(45deg); }
+    .csb-colorpicker-container li.color-none:after, .csb-colorpicker-selector li.color-none:after {
+      position: absolute;
+      display: block;
+      background-color: lightgray;
+      height: 5px;
+      width: 30px;
+      margin: 0 auto;
+      top: 50%;
+      z-index: 0;
+      transform: translateY(-50%) rotate(-45deg); }
+    .csb-colorpicker-container li:before, .csb-colorpicker-selector li:before, .csb-colorpicker-container li:after, .csb-colorpicker-selector li:after {
+      content: ""; }
+    .csb-colorpicker-container li.active-color, .csb-colorpicker-selector li.active-color {
+      box-shadow: 0 0 5px 3px aqua; }
+    .csb-colorpicker-container li span, .csb-colorpicker-selector li span {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2; }
+
+.csb-colorpicker-selector {
+  border-top: 1px solid lightgray; }

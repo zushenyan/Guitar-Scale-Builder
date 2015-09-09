@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Guitar Scale Builder</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="lib/font-awesome-4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/color-picker.css">
+		<link rel="stylesheet" href="css/guitar-fretboard.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<!-- Nav -->
+		<nav class="nav navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<nav class="navbar-header">
+					<a class="navbar-brand">Guitar Scale Builder</a>
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-dropdown">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</nav>
+
+				<nav id="bs-dropdown" class="navbar-collapse collapse">
+					<section class="panel panel-default">
+						<div class="panel-heading text-center"><h1 class="panel-title">Tuning</h1></div>
+						<div class="panel-body text-center">
+							<select id="s1"></select>
+							<select id="s2"></select>
+							<select id="s3"></select>
+							<select id="s4"></select>
+							<select id="s5"></select>
+							<select id="s6"></select>
+						</div>
+					</section>
+					<section class="panel panel-default">
+						<div class="panel-heading text-center"><h1 class="panel-title">Scale</h1></div>
+						<div class="panel-body">
+							<div id="color-picker" class="csb-container">
+					      <ul class="csb-colorpicker-container"></ul>
+					      <ul class="csb-colorpicker-selector"></ul>
+						  </div>
+						</div>
+						<div class="panel-footer text-center">
+							<label for="keys">Key:</label>
+							<select id="keys"></select>
+							<label for="predefinedScales">Scales:</label>
+							<select id="predefinedScales"></select>
+						</div>
+					</section>
+				</nav>
+			</div>
+		</nav>
+
+		<main class="container-fluid">
+			<div class="gf-container">
+				<div id="fretboard" class="gf-fretboard"></div>
+			</div>
+		</main>
+
+		<!-- Scripts  -->
+		<script src="lib/jquery-2.1.4.min.js"></script>
+		<script src="lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+		<script src="js/CSB/Main.js"></script>
+	</body>
+</html>

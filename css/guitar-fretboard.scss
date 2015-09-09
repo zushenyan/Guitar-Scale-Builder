@@ -1,0 +1,154 @@
+// out: guitar-fretboard.css
+
+$string-color: #d59352;
+$fretboard-color: #333330;
+$fretbar-color: #A57164;
+$fretmark-color: #A57164;
+$nut-color: #FBF3D3;
+$shadow-color: #151515;
+
+$fretbar-height: 5px;
+$fret-row-height: 80px;
+$nut-height: 20px;
+$note-width: 40px;
+
+// consts for absolutely centering mixin
+$ABS_CENTER_HOR: 1;
+$ABS_CENTER_VER: 2;
+$ABS_CENTER_BOTH: 3;
+
+@mixin display-flex($flex){
+	display: $flex;
+	flex-flow: row nowrap;
+}
+
+@mixin string($gauge){
+  display: block;
+  position: absolute;
+  background-color: $string-color;
+  box-shadow: -1px 0 1px 0px $shadow-color;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: $gauge;
+  height: $fret-row-height + $fretbar-height;
+}
+
+@mixin absolute-centering($position, $direction){
+  position: $position;
+  @if $direction == $ABS_CENTER_HOR {
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+  @else if $direction == $ABS_CENTER_VER {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @else {
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.gf-container {
+  position: relative;
+	margin-top: $fretbar-height * 10;
+  text-align: center;
+}
+
+.gf-fretboard {
+  display: inline-block;
+  border-top-width: $nut-height;
+  border-top-style: solid;
+  border-top-color: $nut-color;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0px 0px 1px 2px $shadow-color;
+  background-color: $fretboard-color;
+}
+
+.gf-fret-row {
+	@include display-flex(flex);
+  height: $fret-row-height;
+  border-bottom: $fretbar-height solid $fretbar-color;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  // open fret
+  &:first-child {
+    border-bottom: none;
+    position: absolute;
+    top: -$fret-row-height;
+
+    li {
+      background-color: transparent;
+      &:nth-child(1):after { width: 0; height: 0; }
+      &:nth-child(2):after { width: 0; height: 0; }
+      &:nth-child(3):after { width: 0; height: 0; }
+      &:nth-child(4):after { width: 0; height: 0; }
+      &:nth-child(5):after { width: 0; height: 0; }
+      &:nth-child(6):after { width: 0; height: 0; }
+
+      & div {
+        top: auto;
+        bottom: 0;
+        transform: translateY(0%);
+      }
+    }
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  li {
+    position: relative;
+    height: $fret-row-height;
+    width: $note-width;
+    background-color: transparent;
+
+    &:before,&:after { content: ""; }
+
+    &:nth-child(1):after { @include string(6px); }
+    &:nth-child(2):after { @include string(5px); }
+    &:nth-child(3):after { @include string(4px); }
+    &:nth-child(4):after { @include string(3px); }
+    &:nth-child(5):after { @include string(2px); }
+    &:nth-child(6):after { @include string(1px); }
+
+    &.gf-dot-mark {
+      &:before{
+        display: block;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: $fretmark-color;
+        border-radius: 50%;
+        right: -10px;
+        z-index: 1;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+.gf-note {
+  @include absolute-centering(absolute, $ABS_CENTER_BOTH);
+  display: block;
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 1px 0px $shadow-color;
+
+  span {
+    @include absolute-centering(absolute, $ABS_CENTER_BOTH);
+    display: block;
+  }
+}

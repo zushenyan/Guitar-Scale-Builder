@@ -1,0 +1,92 @@
+// out: color-picker.css
+
+$container-bg-color: white;
+$container-row-seperator-color: gray;
+$container-seperator-color: lightgray;
+$color-selector-height: 72px;
+
+@mixin slash($rotate-deg){
+  position: absolute;
+  display: block;
+  background-color: lightgray;
+  height: 5px;
+  width: 30px;
+  margin: 0 auto;
+  top: 50%;
+  z-index: 0;
+  transform: translateY(-50%) rotate($rotate-deg);
+}
+
+.csb-colorpicker {
+  display: inline-block;
+  background-color: $container-bg-color;
+}
+
+.csb-colorpicker-container {
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+  transition: all ease 1s;
+
+  li {
+    display: inline-block;
+    position: relative;
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    margin: 0 10px;
+
+    &:hover { cursor: pointer; }
+
+    &.color-1 { background-color: white; }
+    &.color-2 { background-color: aqua; }
+    &.color-3 { background-color: orange; }
+    &.color-4 { background-color: coral; }
+    &.color-5 { background-color: brown; }
+    &.color-6 { background-color: beige; }
+    &.color-7 { background-color: gold; }
+    &.color-8 { background-color: mistyrose; }
+    &.color-9 { background-color: gray; }
+    &.color-10 { background-color: royalblue; }
+    &.color-11 { background-color: yellow; }
+    &.color-none {
+			&:before { @include slash(45deg); };
+			&:after { @include slash(-45deg); };
+		}
+
+		&:before, &:after { content: ""; }
+
+    &.active-color {
+      box-shadow: 0 0 5px 3px aqua;
+    }
+
+    span {
+      position: absolute;
+      // horizontally centering things with MAGIC!
+      left: 0;
+      right: 0;
+      margin: auto;
+      // vertically centering things with another MAGIC!
+      top: 50%;
+      transform: translateY(-50%);
+			z-index: 2;
+    }
+  }
+}
+
+.csb-colorpicker-selector {
+  @extend .csb-colorpicker-container;
+  border-top: 1px solid $container-seperator-color;
+  // padding: 0;
+  // height: 0;
+  // overflow: hidden;
+  // visibility: hidden;
+
+  // &.expand {
+  //   height: $color-selector-height;
+  //   visibility: visible;
+  //   padding: 10px 0;
+  // }
+}
