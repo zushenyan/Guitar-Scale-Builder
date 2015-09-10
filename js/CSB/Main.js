@@ -25,6 +25,7 @@ var Main = (function () {
     Main.prototype.initUIColorPicker = function () {
         var cpContainer = document.querySelector("#color-picker .csb-colorpicker-container");
         var cpSelector = document.querySelector("#color-picker .csb-colorpicker-selector");
+        // create <li> in .csb-colorpicker-container
         for (var i = 0; i < this.KEYS.length; i++) {
             var li = document.createElement("li");
             var span = document.createElement("span");
