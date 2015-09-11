@@ -1,23 +1,28 @@
 export class Note {
-	_note;
+	_noteName;
 	_highlight;
+	_color;
 
-	constructor(note){
-		this.setNote(note);
+	constructor(note, color = "white"){
+		this.setNoteName(note);
+		this.setColor(color);
 		this.highlightOff();
 	}
 
 	// only takes "#" sharp as a standard, it doesn't take "b"
-	setNote(note) {
-		this._note = Note.normalize(note);
+	setNoteName(note) {
+		this._noteName = Note.normalize(note);
 	}
 
-	getNote(){ return this._note; }
+	getNoteName(){ return this._noteName; }
 
 	highlightOn(){ this._highlight = true; }
 	highlightOff(){ this._highlight = false; }
 
-	getHighlight(){ return this._highlight; }
+	isHighlighted(){ return this._highlight; }
+
+	setColor(color){ this._color = color; }
+	getColor(){ return this._color; }
 
 	// Normalize a note. For example, notes like "B#, E#..." will be all normalized to "C, F...".
 	static normalize(note){

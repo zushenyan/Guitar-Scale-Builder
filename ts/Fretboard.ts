@@ -7,11 +7,10 @@ export class Fretboard {
 	_tuning;
 
 	constructor(tuning, fretNumber){
-		this.setTuning(tuning);
-		this.setFretNumber(fretNumber);
+		this.generateFretboard(tuning, fretNumber);
 	}
 
-	setFretNumber(fretNumber){
+	setFretNumber(fretNumber = 14){
 		if(typeof fretNumber !== "number"){
 			throw new TypeError("fretNumber should be type of number: "+ fretNumber);
 		}
@@ -23,7 +22,7 @@ export class Fretboard {
 
 	getFretNumber(){ return this._fretNumber; }
 
-	setTuning(tuning){
+	setTuning(tuning = MusicConst.STANDARD_TUNING){
 		if(!(tuning instanceof Array)){
 			throw new TypeError("tuning should be type of array: " + tuning);
 		}
@@ -36,23 +35,25 @@ export class Fretboard {
 
 	getTuning(){ return this._tuning; }
 
-	generateFretboard(){
-		if(!this._tuning){ throw "tuning is not initiated: " + this._tuning; }
-		if(!this._fretNumber){ throw "fretNumber is not initiated: " + this._fretNumber; }
+	generateFretboard(tuning, fretNumber){
+		this.setTuning(tuning);
+		this.setFretNumber(fretNumber);
 
 		this._fretboard = [];
 
 		for(let stringIndex = 0; stringIndex < this._tuning.length; stringIndex++){
 			let string = [],
-					startingNoteIndex = MusicConst.MAJOR_SCALE.indexOf(this._tuning[stringIndex].getNote()),
+					startingNoteIndex = MusicConst.KEYS.indexOf(this._tuning[stringIndex].getNoteName()),
 					currentIndex,
 					counter;
 			for(counter = 0; counter < this.getFretNumber(); counter++){
-				currentIndex = (startingNoteIndex + counter) % MusicConst.MAJOR_SCALE.length;
-				string.push(new Note(MusicConst.MAJOR_SCALE[currentIndex]));
+				currentIndex = (startingNoteIndex + counter) % MusicConst.KEYS.length;
+				string.push(new Note(MusicConst.KEYS[currentIndex]));
 			}
 			this._fretboard.push(string);
 		}
+
+		return this.getFretboard();
 	}
 
 	getFretboard(){
@@ -61,24 +62,20 @@ export class Fretboard {
 
 	// specifiy what notes should be hightlighted.
 	// pass array in.
-	// array patter - ["E", "C#", "D"...]
-	highlightNotes(notes){
-		if(!this._fretboard){
-			throw "_fretboard is not initiated: " + this.getFretboard();
+	// array patter - [new Node("E", "blue"), new Node("G", "yellow"), new Node("F")...]
+	highlightNotes(scale){
+		if(!(scale instanceof Array)){
+			throw new TypeError("scale should be type of array: " + scale);
 		}
-		if(!(notes instanceof Array)){
-			throw new TypeError("notes should be type of array: " + notes);
-		}
+
 		this.resetHighlight();
-		for(let i = 0; i < notes.length; i++){
-			notes[i] = Note.normalize(notes[i]);
-		}
 
 		for(let i = 0; i < this._fretboard.length; i++){
 			for(let j = 0; j < this._fretboard[i].length; j++){
-				for(let ni = 0; ni < notes.length; ni++){
-					if(this._fretboard[i][j].getNote() === notes[ni]){
+				for(let ni = 0; ni < scale.length; ni++){
+					if(this._fretboard[i][j].getNoteName() === scale[ni].getNoteName()){
 						this._fretboard[i][j].highlightOn();
+						this._fretboard[i][j].setColor(scale[ni].getColor());
 					}
 				}
 			}
