@@ -1,5 +1,0 @@
-requirejs(
-	[
-		"CSB/Main"
-	]
-)
