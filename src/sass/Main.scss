@@ -1,0 +1,37 @@
+@import "./util.scss";
+
+body {
+	background-color: lighten(#F5DEB3, 5%);
+}
+
+.mobile-margin-top {
+	margin-top: 20px;
+}
+
+.mobile-margin-bottom {
+	margin-bottom: 20px;
+}
+
+.same-height {
+  @include display-flex();
+	& > [class*="col"]{
+		@include display-flex();
+	  @include flex(1 1 auto);
+		& > section {
+			width: 100%;
+		}
+	}
+}
+
+.fretboard-container {
+	height: 240px;
+	margin: 50px 0 50px 0;
+}
+
+#tuningPanel[data-device="desktop"] {
+	@include display-flex();
+	@include flex-flow(column-reverse nowrap);
+	& > select {
+		@include flex(1 1 auto);
+	}
+}
