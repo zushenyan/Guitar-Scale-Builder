@@ -1,0 +1,62 @@
+/*
+	$position - the position you want to.
+	$direction - should be "hor", "ver" or "both", which means horizontal, vertical centering or both.
+*/
+body {
+  background-color: #f8e8ca; }
+
+.mobile-body {
+  padding-top: 70px; }
+
+.mobile-margin-top {
+  margin-top: 20px; }
+
+.mobile-margin-bottom {
+  margin-bottom: 20px; }
+
+.same-height {
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
+  display: -webkit-flex;
+  display: flex; }
+  .same-height > [class*="col"] {
+    display: -moz-flex;
+    display: -o-flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    -moz-flex: 1 1 auto;
+    -o-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto; }
+    .same-height > [class*="col"] > section {
+      width: 100%; }
+
+.mobile-fretboard-container {
+  margin-top: 35px; }
+
+.desktop-fretboard-container {
+  height: 240px;
+  margin: 50px 0 50px 0; }
+
+#tuningPanel[data-device="desktop"] {
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
+  display: -webkit-flex;
+  display: flex;
+  -moz-flex-flow: column-reverse nowrap;
+  -o-flex-flow: column-reverse nowrap;
+  -ms-flex-flow: column-reverse nowrap;
+  -webkit-flex-flow: column-reverse nowrap;
+  flex-flow: column-reverse nowrap; }
+  #tuningPanel[data-device="desktop"] > select {
+    -moz-flex: 1 1 auto;
+    -o-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto; }
+
+/*# sourceMappingURL=guitar-scale-builder-0.1.0.css.map */
