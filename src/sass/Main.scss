@@ -4,6 +4,10 @@ body {
 	background-color: lighten(#F5DEB3, 5%);
 }
 
+.mobile-body {
+	padding-top: 70px;
+}
+
 .mobile-margin-top {
 	margin-top: 20px;
 }
@@ -23,7 +27,11 @@ body {
 	}
 }
 
-.fretboard-container {
+.mobile-fretboard-container {
+	margin-top: 35px;
+}
+
+.desktop-fretboard-container {
 	height: 240px;
 	margin: 50px 0 50px 0;
 }

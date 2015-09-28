@@ -14,7 +14,7 @@ var browserSync = require("browser-sync").create();
 var del = require("del");
 
 // variables
-var version = "0.0.1";
+var version = "0.1.0";
 var appName = "guitar-scale-builder" + "-" + version;
 var debug = true;
 
@@ -34,6 +34,9 @@ var jsBundleFile = appName + ".js";
 var jsBundleMinFile = appName + ".min.js";
 var jsBundleMinFilePath = jsDirPath + jsBundleMinFile;
 
+var libDirAllFiles = "src/lib/**/*";
+var htmlAllFiles = "src/*.html";
+
 var testFiles = "src/test/**/*.js";
 var htmlFiles = "src/**/*.html";
 
@@ -41,6 +44,7 @@ var distPath = "dist/";
 var distAppPath = distPath + appName + "/";
 var distCssPath = distAppPath + "css/";
 var distJsPath = distAppPath + "js/";
+var distLibPath = distAppPath + "lib/";
 
 function errorHandler(err){
 	console.log(err.toString());
@@ -92,6 +96,13 @@ gulp.task("build", ["clean", "compileSass", "minifyJs"]);
 gulp.task("product", ["build"], function(){
 	gulp.src(jsDirAllFiles)
 	.pipe(gulp.dest(distJsPath));
+
 	gulp.src(cssDirAllFiles)
 	.pipe(gulp.dest(distCssPath));
+
+	gulp.src(libDirAllFiles)
+	.pipe(gulp.dest(distLibPath));
+
+	gulp.src(htmlAllFiles)
+	.pipe(gulp.dest(distAppPath));
 });
