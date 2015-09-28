@@ -15,7 +15,7 @@ Supports the latest browsers (IE 11+, Firefox 41+...) and mobile browsers.
 # Tools
 * JavaScript
   * Babel
-	* Browserify
+  * Browserify
 * CSS
   * Sass
 * NPM, Gulp
