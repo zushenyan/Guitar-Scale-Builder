@@ -18,8 +18,11 @@ Supports the latest browsers (IE 11+, Firefox 41+...) and mobile browsers.
   * Browserify
 * CSS
   * Sass
-* NPM, Gulp
-* Font Awesome, jQuery, Bootstrap
+* NPM
+* Gulp
+* Font Awesome
+* jQuery
+* Bootstrap
 * [Fretboard Awesome](https://github.com/zushenyan/Fretboard-Awesome) & [Predefined Color Picker](https://github.com/zushenyan/Predefined-Color-Picker) are my side projects. Take a look if you are interested.
 
 # Author & Licence
