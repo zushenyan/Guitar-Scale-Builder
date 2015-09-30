@@ -10,7 +10,7 @@ Supports the latest browsers (IE 11+, Firefox 41+...) and mobile browsers.
 * Mobile friendly.
 * Configurable tuning.
 * Note highlight.
-* Share with others in one link.
+* Share with others with link.
 
 # Tools
 * JavaScript
